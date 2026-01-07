@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: free-electron-backend
+free-electron-backend:
+  security:
+    secret-key:
+    valid-time:

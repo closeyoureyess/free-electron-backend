@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: free-electron-backend
+  datasource:
+    url: jdbc:postgresql://${BASEPROJECT_DATABASE_HOST:localhost}:${BASEPROJECT_DATABASE_PORT:5434}/${BASEPROJECT_DATABASE_NAME:freedb}
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    generate-ddl: false
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+free-electron-backend:
+  security:
+    google-client-id:
+    jwt:
+      secret: F510C4B0354B33E8ED73016958603787042439D41EC31038150B1FA6986B6AA532415E9E6DCF1A60A3354F14CAA6CB2EBF573130E104FF296BDF20ED65D4BC4B
+      expire-ttl-minutes: 15
+      refresh:
+        expire-ttl-days: 30
+        pepper: "CHANGE_ME_TOO_LONG_RANDOM_PEPPER"
+
+logging:
+  level:
+    com:
+      electron:
+        backend: DEBUG
+  file:
+    name: logs/app.log
+  pattern-file: %d{yyyy-MM-dd HH:mm:ss} - %msg%n
