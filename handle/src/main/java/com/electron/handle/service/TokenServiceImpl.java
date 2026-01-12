@@ -25,14 +25,14 @@ import static com.electron.handle.enums.SecurityEnum.SHA;
 @RequiredArgsConstructor
 class TokenServiceImpl implements TokenService {
 
-    @Value("${app.security.refresh.pepper}")
-    private final String pepper;
+    @Value("${free-electron-backend.security.refresh.pepper}")
+    private String pepper;
 
-    @Value("${app.security.refresh.expire-ttl-days}")
-    private final Long refreshTtlDays;
+    @Value("${free-electron-backend.security.refresh.expire-ttl-days}")
+    private Long refreshTtlDays;
 
     @Value(value = "${free-electron-backend.security.google-client-id}")
-    private final String googleClientId;
+    private String googleClientId;
 
     private final SecureRandom rng;
 

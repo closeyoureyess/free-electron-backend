@@ -1,6 +1,7 @@
 package com.electron.handle.repository.adapter;
 
 import com.electron.handle.entity.MessageEntity;
+import com.electron.handle.repository.jpa.SpringMessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 class MessageRepositoryAdapterImpl implements MessageRepository {
 
-    private final MessageRepository repository;
+    private final SpringMessageRepository repository;
 
     @Override
     public MessageEntity save(MessageEntity entity) {

@@ -30,7 +30,7 @@ public class UserEntity {
     private String bio;
 
     @Column(name = "nick_name")
-    private String nickname;
+    private String nickName;
 
     @Column(nullable = false, name = "email")
     private String email;

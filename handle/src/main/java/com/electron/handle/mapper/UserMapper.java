@@ -17,7 +17,7 @@ public interface UserMapper {
     @Mapping(source = "name", target = "name", qualifiedByName = "toName")
     @Mapping(source = "surname", target = "surname", qualifiedByName = "toSurname")
     @Mapping(source = "bio", target = "bio", qualifiedByName = "toBio")
-    @Mapping(source = "nickname", target = "nickname", qualifiedByName = "toNickname")
+    @Mapping(source = "nickName", target = "nickName", qualifiedByName = "toNickname")
     @Mapping(source = "email", target = "email", qualifiedByName = "toEmail")
     @Mapping(source = "numberPhone", target = "numberPhone", qualifiedByName = "toNumberPhone")
     User toUser(UserEntity userEntity);
@@ -27,13 +27,43 @@ public interface UserMapper {
         return id != null ? new UserId(id) : null;
     }
 
+    @Named("toName")
+    default UserName toName(String name) {
+        return name != null ? new UserName(name) : null;
+    }
+
+    @Named("toSurname")
+    default UserSurname toSurname(String surname) {
+        return surname != null ? new UserSurname(surname) : null;
+    }
+
+    @Named("toBio")
+    default UserBio toBio(String bio) {
+        return bio != null ? new UserBio(bio) : null;
+    }
+
+    @Named("toNickname")
+    default UserNickname toNickname(String nickname) {
+        return nickname != null ? new UserNickname(nickname) : null;
+    }
+
+    @Named("toEmail")
+    default UserEmail toEmail(String email) {
+        return email != null ? new UserEmail(email) : null;
+    }
+
+    @Named("toNumberPhone")
+    default UserNumberPhone toNumberPhone(String numberphone) {
+        return numberphone != null ? new UserNumberPhone(numberphone) : null;
+    }
+
     UserResponse toUserResponse(UserEntity userEntity);
 
     @Mapping(source = "id", target = "id", qualifiedByName = "uuidToString")
     @Mapping(source = "name", target = "name", qualifiedByName = "userNameToString")
     @Mapping(source = "surname", target = "surname", qualifiedByName = "userSurnameToString")
     @Mapping(source = "bio", target = "bio", qualifiedByName = "userBioToString")
-    @Mapping(source = "nickname", target = "nickname", qualifiedByName = "userNicknameToString")
+    @Mapping(source = "nickName", target = "nickName", qualifiedByName = "userNicknameToString")
     @Mapping(source = "email", target = "email", qualifiedByName = "userEmailToString")
     @Mapping(source = "numberPhone", target = "numberPhone", qualifiedByName = "userNumberPhoneToString")
     UserEntity toUserEntity(User user);

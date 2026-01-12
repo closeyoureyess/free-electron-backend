@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="Создание таблицы пользователей" author="vsirik">
+        <sql>
+            CREATE TABLE IF NOT EXISTS user_table (
+            id UUID PRIMARY KEY,
+            name VARCHAR,
+            surname VARCHAR,
+            bio VARCHAR,
+            nick_name VARCHAR,
+            email VARCHAR NOT NULL,
+            number_phone VARCHAR
+            )
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS user_table
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

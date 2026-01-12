@@ -3,6 +3,8 @@ package com.electron.handle.entity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.builder.EqualsExclude;
 
 import java.time.Instant;
 import java.util.Set;
@@ -30,6 +32,7 @@ public class ChatEntity {
     @Column(name = "last_message_at")
     private Instant lastMessageAt;
 
-    @OneToMany(mappedBy = "chats")
+    @OneToMany(mappedBy = "chat")
+    @EqualsAndHashCode.Exclude
     private Set<MessageEntity> messages;
 }

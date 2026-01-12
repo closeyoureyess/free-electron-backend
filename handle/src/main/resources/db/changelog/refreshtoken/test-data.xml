@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="Наполнение таблицы хранения токенов" author="vsirik">
+        <sql>
+            INSERT INTO refresh_token (id, user_id, token_hash, created_at, expires_at, revoked_at,
+            last_user_at, device_id)
+            VALUES ('87eab063-86b4-4f1f-a3c9-6a5e115ef247', '87eab063-86b4-4f1f-a3c9-6a5e195ef247',
+            '87eab063-86b4-4f1f-a3c9-6a5e915ef247', '2024-01-15 14:30:45.123456', '2024-01-15 14:30:45.123456',
+            '2024-01-15 14:30:45.123456', '2024-01-15 14:30:45.123456', 'DESKTOP-123456')
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

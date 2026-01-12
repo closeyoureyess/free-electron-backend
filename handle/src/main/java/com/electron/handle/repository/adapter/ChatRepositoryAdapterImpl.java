@@ -1,6 +1,7 @@
 package com.electron.handle.repository.adapter;
 
 import com.electron.handle.entity.ChatEntity;
+import com.electron.handle.repository.jpa.SpringChatRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +12,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 class ChatRepositoryAdapterImpl implements ChatRepository {
 
-    private final ChatRepository repository;
+    private final SpringChatRepository repository;
 
     @Override
     public ChatEntity save(ChatEntity entity) {

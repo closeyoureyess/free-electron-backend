@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="Создание таблицы хранения токенов" author="vsirik">
+        <sql>
+            CREATE TABLE IF NOT EXISTS refresh_token (
+            id UUID PRIMARY KEY,
+            user_id UUID NOT NULL,
+            token_hash VARCHAR(65) UNIQUE NOT NULL,
+            created_at TIMESTAMPTZ NOT NULL,
+            expires_at TIMESTAMPTZ NOT NULL,
+            revoked_at TIMESTAMPTZ,
+            last_user_at TIMESTAMPTZ NOT NULL,
+            device_id VARCHAR
+            )
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS refresh_token
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

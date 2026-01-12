@@ -17,13 +17,13 @@ import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
-public class JwtServiceImpl implements JwtService {
+class JwtServiceImpl implements JwtService {
 
-    @Value("${app.security.jwt.secret}")
-    private final String SECRET_KEY;
+    @Value("${free-electron-backend.security.jwt.secret}")
+    private String SECRET_KEY;
 
-    @Value("${app.security.jwt.expire-ttl-minutes}")
-    private final Long expireTtlMinutes;
+    @Value("${free-electron-backend.security.jwt.expire-ttl-minutes}")
+    private Long expireTtlMinutes;
 
     @Override
     public AccessTokenResponse generateToken(String userName) {

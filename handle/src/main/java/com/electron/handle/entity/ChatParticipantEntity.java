@@ -33,5 +33,6 @@ public class ChatParticipantEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
+    @Column(name = "joined_at")
     private Instant joinedAt;
 }

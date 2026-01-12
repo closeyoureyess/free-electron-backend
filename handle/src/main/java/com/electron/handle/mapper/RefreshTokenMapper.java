@@ -17,9 +17,10 @@ import java.util.UUID;
 )
 public interface RefreshTokenMapper {
 
+    @IterableMapping(qualifiedByName = "refreshTokenToRefreshTokenEntity")
     List<RefreshTokenEntity> toListRefreshTokenEntity(List<RefreshToken> refreshTokens);
 
-    @IterableMapping(qualifiedByName = "refreshTokenToRefreshTokenEntity")
+    @IterableMapping(qualifiedByName = "refreshTokenEntityToRefreshToken")
     List<RefreshToken> toListRefreshToken(List<RefreshTokenEntity> refreshTokenEntities);
 
     @Named("refreshTokenEntityToRefreshToken")
@@ -34,17 +35,17 @@ public interface RefreshTokenMapper {
         return id != null ? new RefreshTokenId(id) : null;
     }
 
-    @Named("toUserId")
+    @Named("toRefreshUserId")
     default RefreshUserId toRefreshUserId(UUID userId) {
         return userId != null ? new RefreshUserId(userId) : null;
     }
 
-    @Named("toTokenHash")
+    @Named("toRefreshTokenHash")
     default RefreshTokenHash toRefreshTokenHash(String tokenHash) {
         return tokenHash != null ? new RefreshTokenHash(tokenHash) : null;
     }
 
-    @Named("toDeviceId")
+    @Named("toRefreshDeviceId")
     default RefreshDeviceId toRefreshDeviceId(String deviceId) {
         return deviceId != null ? new RefreshDeviceId(deviceId) : null;
     }

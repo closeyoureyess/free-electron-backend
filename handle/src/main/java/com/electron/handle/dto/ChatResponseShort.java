@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 public record ChatResponseShort(
-        UUID id,
+        Long id,
         String type,
         Instant createdAt,
         Instant lastMessageAt

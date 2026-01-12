@@ -14,7 +14,7 @@ import java.util.UUID;
 @Table(name = "chat_message")
 @NamedEntityGraph(
         name = "MessageEntity.graph",
-        attributeNodes = @NamedAttributeNode(value = "chats")
+        attributeNodes = @NamedAttributeNode(value = "chat")
 )
 public class MessageEntity {
 

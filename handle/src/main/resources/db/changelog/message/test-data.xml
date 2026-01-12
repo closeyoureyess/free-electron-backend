@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="Наполнение таблицы сообщений данными" author="vsirik">
+        <sql>
+            INSERT INTO chat_message (id, content, author_user_id, created_at, chat_id)
+            VALUES ('87eab063-86b4-4f1f-a3c9-6a5e155ef247', 'Тест', '87eab063-86b4-4f1f-a3c9-6a5e915ef247', '2024-01-15 14:30:45.123456', 1)
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

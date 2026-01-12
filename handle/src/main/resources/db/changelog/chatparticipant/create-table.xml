@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="Создание таблицы связей с чатами" author="vsirik">
+        <sql>
+            CREATE TABLE IF NOT EXISTS chat_participant (
+            id UUID PRIMARY KEY,
+            chat_id BIGINT NOT NULL REFERENCES chat(id),
+            user_id UUID NOT NULL REFERENCES user_table(id),
+            joined_at TIMESTAMPTZ
+            )
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS chat_participant
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

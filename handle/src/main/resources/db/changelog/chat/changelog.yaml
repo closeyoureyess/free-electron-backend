@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/chat/create-table.xml
+  - include:
+      file: db/changelog/chat/test-data.xml

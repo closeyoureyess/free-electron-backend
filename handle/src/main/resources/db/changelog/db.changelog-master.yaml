@@ -1,3 +1,11 @@
 databaseChangeLog:
   - include:
-      file:
+      file: db/changelog/chat/changelog.yaml
+  - include:
+      file: db/changelog/message/changelog.yaml
+  - include:
+      file: db/changelog/user/changelog.yaml
+  - include:
+      file: db/changelog/chatparticipant/changelog.yaml
+  - include:
+      file: db/changelog/refreshtoken/changelog.yaml
